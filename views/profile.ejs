@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Главная</title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+  <div class="main-container">
+    <header>
+      <a href="/" class="logo">KoduMööbel</a>
+      <div class="header-links-right">
+        <a href="/login"><div class="header-button">Профиль</div></a>
+      </div>
+    </header>
+
+    <div class="profile-container">
+        <p class="exit-button">Выйти из аккаунта</p>
+        <p>krasava1081@gmail.com</p>
+    </div>
+
+    <div class="profile-orders-container">
+        <h1>Заказы</h1>
+
+        <div class="orders-container">
+            <div class="order-container">
+                <div class="order-text-container">
+                    <h1>Номер заказа: 132475</h1>
+                    <p>Статус: неоплаченно</p>
+                </div>
+                <div class="order-list-container">
+                    <p>Классный диван</p>
+                    <p>Классная лампа</p>
+                    <p>Классный кухонный гарнитур</p>
+                </div>
+                <div class="order-contant-container">
+                    <p>Адрес доставки: </p>
+                    <p>Контактная информация: </p>
+                </div>
+                <div class="order-buttons-container">
+                    <button onclick="paymentModal()">Оплатить</button>
+                    <button>Отменить</button>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+      <h1>Оплатите 300€</h1>
+      <p>Перешлите деньги на этот счет и в описании к платежу укажите номер заказа: EE042200221049992518 KODUMÖÖBEL OÜ</p>
+    </div>
+  </div>
+
+  <script src="/javascripts/profile.js"></script>
+</body>
+</html>

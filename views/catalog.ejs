@@ -31,14 +31,27 @@
             <% for(var i=0; i < 8; i++) {%>
                 <div class="card-container">
                     <div class="card">
-                        <img src="/images/divan.jpg" alt="">
-                        
+                        <div class="card-content-container" onclick="cardModal()">
+                          <img src="/images/divan.jpg" alt="">
+                          <p class="card-title">Классный диван</p>
+                          <p class="card-price">250€</p>
+                        </div>
+                        <button>В корзину</button>
                     </div>
                 </div>
             <% } %>
         </div>
+
+        <div id="myModal" class="modal">
+          <div class="modal-content">
+            <h1>Классный диван</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliquaLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua..</p>
+          </div>
+        </div>
     </div>
 
   </div>
+
+  <script src="/javascripts/catalog.js"></script>
 </body>
 </html>

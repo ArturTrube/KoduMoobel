@@ -3,6 +3,8 @@ html{
   margin: 0;
 }
 
+::-webkit-scrollbar { width: 0;}
+
 body {
   padding: 0;
   margin: 0;
@@ -207,18 +209,149 @@ header a:hover{
 .card-container{
   width: 25%;
   box-sizing: border-box;
-  margin-bottom: 30px; 
-  height: 200px;
+  margin-bottom: 50px; 
 }
 
 .card{
   margin: auto;
   width: 70%;
-  height: 100%;
-  background-color: rgb(156, 253, 177);
+  height: auto;
+  cursor: pointer;
 }
 
 .card img{
   width: 100%;
+  height: auto;
 }
 
+.card p{
+  margin: 0;
+  font-size: 18px;
+}
+
+.card-price{
+  font-weight: 600;
+  margin-top: 10px !important;
+  text-align: right;
+}
+
+.card button{
+  margin: auto;
+  margin-top: 10px;
+  width: 100%;
+  border: none;
+  background-color: #44412B;
+  height: 30px;
+  color: white;
+  border-radius: 10px;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.card button:hover{
+  background-color: #897900;
+}
+
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%;
+  background-color: rgba(0,0,0,0.4); 
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; 
+  padding: 20px;
+  border: 1px solid #888;
+  width: 40%; 
+  border-radius: 10px;
+}
+
+.modal-content h1{
+  margin-top: 0;
+}
+
+.profile-container{
+  text-align: center;
+}
+
+.orders-container{
+  padding-bottom: 30px;
+}
+
+.exit-button{
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.exit-button:hover{
+  color: #897900;
+}
+
+.order-container{
+  border: 1px solid black;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
+
+.order-text-container{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+.order-text-container h1{
+  margin: 0;
+  text-align: right;
+  font-size: 22px;
+}
+
+.order-text-container p{
+  margin: 0;
+  text-align: right;
+  font-size: 18px;
+}
+
+.order-list-container p{
+  margin: 0;
+  margin-top: 10px;
+}
+
+.order-contant-container{
+  margin-top: 30px;
+}
+
+.order-contant-container p{
+  font-weight: 600;
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.order-buttons-container{
+  display: flex;
+  width: auto;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.order-buttons-container button{
+  margin-right: 20px;
+  background-color: #44412B;
+  transition: 0.5s;
+  color: white;
+  height: 30px;
+  width: 20%;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.order-buttons-container button:hover{
+  background-color: #897900;
+}
