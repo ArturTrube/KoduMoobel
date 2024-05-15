@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
+const requireAuth = require('./checkRequest');
 
-/* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index');
 });
@@ -15,14 +15,16 @@ router.get('/registration', function(req, res, next) {
 });
 
 router.get('/catalog', function(req, res, next) {
-  res.render('catalog');
+  const user = req.session.user;
+
+  res.render('catalog', { user: user });
 });
 
-router.get('/profile', function(req, res, next) {
+router.get('/profile', requireAuth('Client'), function(req, res, next) {
   res.render('profile');
 });
 
-router.get('/basket', function(req, res, next) {
+router.get('/basket', requireAuth('Client'), function(req, res, next) {
   res.render('basket');
 });
 

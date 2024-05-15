@@ -11,31 +11,28 @@
       <a href="/admin/">Каталог</a>
       <a href="/admin/adding">Добавить мебель</a>
       <a href="/admin/orders">Заказы</a>
-      <a href="/registration">Выйти из аккаунта</a>
+      <a href="/users/logout">Выйти из аккаунта</a>
     </header>
 
     <div class="form-container">
         <h1>Добавить мебель</h1>
-        <input type="text" placeholder="Название">
-        <input type="text" placeholder="Цена">
-        <input type="text" placeholder="Описание">
-        <select name="" id="">
-            <option value="">Кухни</option>
-            <option value="">Спальня</option>
-            <option value="">Ванная</option>
-            <option value="">Гостинная</option>
-            <option value="">Туалет</option>
-            <option value="">Офис</option>
-            <option value="">Прихожая</option>
+        <input type="text" placeholder="Название" id="title">
+        <input type="text" placeholder="Цена" id="price">
+        <input type="text" placeholder="Описание" id="description">
+        <select name="" id="type">
+            <option value="Кухня">Кухня</option>
+            <option value="Спальня">Спальня</option>
+            <option value="Ванная">Ванная</option>
+            <option value="Гостинная">Гостинная</option>
+            <option value="Туалет">Туалет</option>
+            <option value="Офис">Офис</option>
+            <option value="Прихожая">Прихожая</option>
         </select>
-        <input type="file">
-        <button>Добавить</button>
+        <input type="file" id="photo">
+        <button id="button" onclick="addFurniture()">Добавить</button>
     </div>
-
-    
-
   </div>
 
-  <script src="/javascripts/catalog.js"></script>
+  <script src="/javascripts/admin.js"></script>
 </body>
 </html>

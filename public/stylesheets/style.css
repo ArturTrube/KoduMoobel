@@ -287,6 +287,11 @@ header a:hover{
   text-align: center;
 }
 
+.profile-container a{
+  text-decoration: none;
+  color: #44412B;
+}
+
 .orders-container{
   padding-bottom: 30px;
 }

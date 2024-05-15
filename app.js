@@ -3,12 +3,31 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var mongoose = require('mongoose');
+const session = require('express-session');
+
+const url = 'mongodb+srv://Deniss:narvahaigla@firstcluster.k4micc7.mongodb.net/kodumoobel?retryWrites=true&w=majority';
+
+mongoose.connect(url);
+
+const db = mongoose.connection;
+
+db.on('error', console.error.bind(console, 'Error to connection to Database:'));
+db.once('open', function() { console.log('Connected to Database') });
+
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var adminRouter = require('./routes/admin');
 
 var app = express();
+
+app.use(session({
+  secret: 'rehq4tyojkvriwt', 
+  resave: false,
+  saveUninitialized: true,
+  cookie: { maxAge: 1000 * 60 * 60 * 24 }
+}));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

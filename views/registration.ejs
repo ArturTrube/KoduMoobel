@@ -17,13 +17,15 @@
     </header>
 
     <div class="auth-container">
-        <h1>Авторизация</h1>
-        <input type="text" placeholder="Электронная почта">
-        <input type="password" placeholder="Пароль">
-        <input type="password" placeholder="Повторите пароль">
-        <button>Зарегистрироваться</button>
+        <h1>Регистрация</h1>
+        <input type="text" placeholder="Электронная почта" id="email">
+        <input type="password" placeholder="Пароль" id="password">
+        <input type="password" placeholder="Повторите пароль" id="check-password">
+        <button onclick="registration()" id="reg-button">Зарегистрироваться</button>
     </div>
 
   </div>
+
+  <script src="/javascripts/registration.js"></script>
 </body>
 </html>

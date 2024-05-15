@@ -9,12 +9,21 @@
 <body>
   <div class="main-container">
     <header>
+      <% if (!user) { %>
       <a href="/" class="logo">KoduMööbel</a>
       <div class="header-links-right">
         <a href="/registration">Регистрация</a>
         <a href="/login"><div class="header-button">Войти</div></a>
       </div>
+      <% } else { %>
+        <a href="/catalog" class="logo">KoduMööbel</a>
+        <div class="header-links-right">
+        <a href="/basket"><img src="/images/basket.png" alt=""></a>
+        <a href="/profile"><div class="header-button">Профиль</div></a>
+      </div>
+      <% } %>
     </header>
+
 
     <div class="option-buttons-container">
         <div class="option-button-container">
