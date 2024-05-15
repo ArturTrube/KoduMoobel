@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Главная</title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+  <div class="main-container">
+    <header class="admin-header">
+      <a href="/admin/">Каталог</a>
+      <a href="/admin/adding">Добавить мебель</a>
+      <a href="/admin/orders">Заказы</a>
+      <a href="/registration">Выйти из аккаунта</a>
+    </header>
+
+    <div class="option-buttons-container">
+        <% for(var i=0; i < 8; i++) {%>
+        <div class="option-button-container">
+            <div class="option-button">Кухни</div>
+        </div>
+        <% } %>
+    </div>
+
+    <div class="catalog-container">
+        <h1>Кухни</h1>
+
+        <div class="cards-container">
+            <% for(var i=0; i < 8; i++) {%>
+                <div class="card-container">
+                    <div class="card">
+                        <div class="card-content-container" onclick="cardModal()">
+                          <img src="/images/divan.jpg" alt="">
+                          <p class="card-title">Классный диван</p>
+                          <p class="card-price">250€</p>
+                        </div>
+                        <button>Удалить</button>
+                    </div>
+                </div>
+            <% } %>
+        </div>
+
+        <div id="myModal" class="modal">
+          <div class="modal-content">
+            <h1>Классный диван</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliquaLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua..</p>
+          </div>
+        </div>
+    </div>
+
+  </div>
+
+  <script src="/javascripts/catalog.js"></script>
+</body>
+</html>
