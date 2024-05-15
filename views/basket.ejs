@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Главная</title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+  <div class="main-container">
+    <header>
+      <a href="/" class="logo">KoduMööbel</a>
+      <div class="header-links-right">
+        <a href="/basket"><img src="/images/basket.png" alt=""></a>
+        <a href="/profile"><div class="header-button">Профиль</div></a>
+      </div>
+    </header>
+
+    <div class="basket-container">
+      <div class="basket-cards-container">
+        <% for(var i=0; i < 4; i++) {%>
+          <div class="card-container" style="width: 50%;">
+              <div class="card">
+                  <div class="card-content-container">
+                    <img src="/images/divan.jpg" alt="">
+                    <p class="card-title">Классный диван</p>
+                    <p class="card-price">250€</p>
+                  </div>
+                  <button class="basket-card-button">
+                    <p class="basket-card-button-minus">-</p>
+                    <p>1</p>
+                    <p class="basket-card-button-plus">+</p>
+                  </button>
+              </div>
+          </div>
+      <% } %>
+      </div>
+      <div class="basket-order-container">
+        <h1>Заказ</h1>
+        <p>Сумма: 1853€</p>
+
+        <input type="text" placeholder="Адрес доставки">
+        <input type="text" placeholder="Контактная информация">
+
+        <center><button>Оформить заказ</button></center>
+      </div>
+    </div>
+
+  <script src="/javascripts/profile.js"></script>
+</body>
+</html>

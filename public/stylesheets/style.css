@@ -60,6 +60,11 @@ header a{
   align-items: center;
 }
 
+.header-links-right img{
+  margin-top: 5px;
+  width: 30px;
+}
+
 header a:hover{
   color: #897900;
 }
@@ -354,4 +359,78 @@ header a:hover{
 
 .order-buttons-container button:hover{
   background-color: #897900;
+}
+
+.basket-container{
+  margin: auto;
+  display: flex;
+  width: 65%;
+  margin-top: 50px;
+  padding-bottom: 50px;
+}
+
+.basket-cards-container{
+  display: flex;
+  flex-wrap: wrap;
+  width: 70%;
+}
+
+.basket-card-button{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: default !important;
+  padding: 0 15px;
+}
+
+.basket-card-button-plus{
+  cursor: pointer;
+}
+
+.basket-card-button-minus{
+  cursor: pointer;
+}
+
+
+.basket-card-button:hover{
+  background-color:#44412B !important;
+}
+
+.basket-order-container{
+  width: 30%;
+  border-left: 1px solid black;
+  padding: 0 10px;
+}
+
+.basket-order-container h1{
+  margin: 0;
+  text-align: center;
+}
+
+.basket-order-container p{
+  font-weight: 600;
+  margin: 30px 0;
+}
+
+.basket-order-container input{
+  background-color:#00b7ff00;
+  border: 1px solid black;
+  border-radius: 10px;
+  height: 30px;
+  padding-left: 10px;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.basket-order-container button{
+  margin: auto;
+  margin-top: 10px;
+  background-color: #44412B;
+  transition: 0.5s;
+  color: white;
+  height: 30px;
+  width: 70%;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
 }

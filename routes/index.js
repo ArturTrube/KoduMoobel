@@ -22,8 +22,8 @@ router.get('/profile', function(req, res, next) {
   res.render('profile');
 });
 
-router.get('/busket', function(req, res, next) {
-  res.render('busket');
+router.get('/basket', function(req, res, next) {
+  res.render('basket');
 });
 
 module.exports = router;
