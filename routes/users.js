@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const bcrypt = require('bcrypt');
+const requireAuth = require('./checkRequest');
 const User = require('../models/User'); 
 
 router.post('/login', async function(req, res) {
@@ -67,5 +68,60 @@ router.post('/registration', async function(req, res, next) {
     res.status(500).json({ message: 'Произошла ошибка при регистрации пользователя' });
   }
 });
+
+router.post('/add-to-basket', async (req, res) => {
+  try {
+      const { itemId } = req.body;
+      const user = req.session.user;
+      
+      if (!user) {
+        return res.status(403).json({ message: 'Пользователь не авторизован' });
+      }
+      
+      const foundUser = await User.findById(user._id);
+
+      if (!foundUser) {
+          return res.status(404).json({ message: 'Пользователь не найден' });
+      }
+
+      foundUser.basket.push(itemId);
+      await foundUser.save();
+
+      res.status(200).json({ message: 'Товар успешно добавлен в корзину' });
+  } catch (error) {
+      console.error('Произошла ошибка:', error);
+      res.status(500).json({ message: 'Произошла ошибка при добавлении товара в корзину' });
+  }
+});
+
+router.post('/remove-from-basket', async (req, res) => {
+  try {
+    const { itemId } = req.body;
+    const user = req.session.user;
+    
+    if (!user) {
+      return res.status(403).json({ message: 'Пользователь не авторизован' });
+    }
+    
+    const foundUser = await User.findById(user._id);
+    
+    if (!foundUser) {
+      return res.status(404).json({ message: 'Пользователь не найден' });
+    }
+
+    const index = foundUser.basket.indexOf(itemId);
+    if (index !== -1) {
+      foundUser.basket.splice(index, 1);
+    }
+
+    await foundUser.save();
+
+    res.status(200).json({ message: 'Товар успешно удален из корзины' });
+  } catch (error) {
+    console.error('Произошла ошибка:', error);
+    res.status(500).json({ message: 'Произошла ошибка при удалении товара из корзины' });
+  }
+});
+
 
 module.exports = router;

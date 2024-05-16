@@ -27,53 +27,62 @@
 
     <div class="option-buttons-container">
         <div class="option-button-container">
-            <div class="option-button">Все категории</div>
+            <div class="option-button" onclick="filterByCategory('all')">Все категории</div>
         </div>
         <div class="option-button-container">
-            <div class="option-button">Кухни</div>
+            <div class="option-button" onclick="filterByCategory('Кухня')">Кухня</div>
         </div>
         <div class="option-button-container">
-            <div class="option-button">Спальня</div>
+            <div class="option-button" onclick="filterByCategory('Спальня')">Спальня</div>
         </div>
         <div class="option-button-container">
-            <div class="option-button">Ванная</div>
+            <div class="option-button" onclick="filterByCategory('Ванная')">Ванная</div>
         </div>
         <div class="option-button-container">
-            <div class="option-button">Гостинная</div>
+            <div class="option-button" onclick="filterByCategory('Гостинная')">Гостинная</div>
         </div>
         <div class="option-button-container">
-            <div class="option-button">Туалет</div>
+            <div class="option-button" onclick="filterByCategory('Туалет')">Туалет</div>
         </div>
         <div class="option-button-container">
-            <div class="option-button">Офис</div>
+            <div class="option-button" onclick="filterByCategory('Офис')">Офис</div>
         </div>
         <div class="option-button-container">
-            <div class="option-button">Прихожая</div>
+            <div class="option-button" onclick="filterByCategory('Прихожая')">Прихожая</div>
         </div>
     </div>
 
     <div class="catalog-container">
-        <h1>Кухни</h1>
+        <h1 id="category-name">Все категории</h1>
 
         <div class="cards-container">
-            <% for(var i=0; i < 8; i++) {%>
-                <div class="card-container">
-                    <div class="card">
-                        <div class="card-content-container" onclick="cardModal()">
-                          <img src="/images/divan.jpg" alt="">
-                          <p class="card-title">Классный диван</p>
-                          <p class="card-price">250€</p>
-                        </div>
-                        <button>В корзину</button>
+          <% furniture.forEach(function(item) { %>
+            <div class="card-container" data-category="<%= item.type %>">
+                <div class="card">
+                    <div class="card-content-container" onclick="cardModal('<%= item.title %>', '<%= item.description %>')">
+                        <img src="/uploads/<%= item.photoLink %>" alt="<%= item.title %>">
+                        <p class="card-title"><%= item.title %></p>
+                        <p class="card-price"><%= item.price %></p>
                     </div>
+                    <% if (user) { %>
+                    <% const itemIdString = String(item._id); %>
+                    <% if (user.basket.includes(itemIdString)) { %>
+                      <button onclick="removeFromBasket('<%= item._id %>')" id="<%= item._id %>">В корзине</button>
+                    <% } else { %>
+                      <button onclick="toBasket('<%= item._id %>')" id="<%= item._id %>">Добавить в корзину</button>
+                    <% } %>
+                    <% } else { %>
+                      <button onclick="toBasket('<%= item._id %>')" id="<%= item._id %>">Добавить в корзину</button>
+                      <% } %>
                 </div>
-            <% } %>
+            </div>
+          <% }); %>
         </div>
 
         <div id="myModal" class="modal">
           <div class="modal-content">
-            <h1>Классный диван</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliquaLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua..</p>
+            <h1 id="modal-title">Классный диван</h1>
+            <p id="modal-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliquaLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua..</p>
           </div>
         </div>
     </div>

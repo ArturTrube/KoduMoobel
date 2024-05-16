@@ -12,6 +12,9 @@ const userSchema = new mongoose.Schema({
     },
   type: { 
     type: String 
+    },
+  basket: { 
+    type: Array
     }
 }, { versionKey: false });
 
