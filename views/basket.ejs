@@ -18,34 +18,34 @@
 
     <div class="basket-container">
       <div class="basket-cards-container">
-        <% for(var i=0; i < 4; i++) {%>
-          <div class="card-container" style="width: 50%;">
-              <div class="card">
-                  <div class="card-content-container">
-                    <img src="/images/divan.jpg" alt="">
-                    <p class="card-title">Классный диван</p>
-                    <p class="card-price">250€</p>
-                  </div>
-                  <button class="basket-card-button">
-                    <p class="basket-card-button-minus">-</p>
-                    <p>1</p>
-                    <p class="basket-card-button-plus">+</p>
-                  </button>
+        <% furniture.forEach(function(item, index) { %>
+          <div class="card-container" style="width: 50%;" id="<%= item._id %>">
+            <div class="card">
+              <div class="card-content-container">
+                <img src="/uploads/<%= item.photoLink %>" alt="">
+                <p class="card-title"><%= item.title %></p>
+                <p class="card-price"><%= item.price %></p>
               </div>
+              <button class="basket-card-button">
+                <p class="basket-card-button-minus" id="minusButton<%= index %>">-</p>
+                <p id="quantityDisplay<%= index %>" class="quantityDisplay">1</p>
+                <p class="basket-card-button-plus" id="plusButton<%= index %>">+</p>
+              </button>
+            </div>
           </div>
-      <% } %>
+        <% }); %>
       </div>
       <div class="basket-order-container">
         <h1>Заказ</h1>
-        <p>Сумма: 1853€</p>
-
-        <input type="text" placeholder="Адрес доставки">
-        <input type="text" placeholder="Контактная информация">
-
-        <center><button>Оформить заказ</button></center>
+        <p id="total">Сумма: 1853€</p>
+    
+        <input type="text" placeholder="Адрес доставки" id="addressInput">
+        <input type="text" placeholder="Контактная информация" id="contactInput">
+    
+        <center><button id="checkoutButton">Оформить заказ</button></center>
       </div>
     </div>
 
-  <script src="/javascripts/profile.js"></script>
+  <script src="/javascripts/basket.js"></script>
 </body>
 </html>

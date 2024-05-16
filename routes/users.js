@@ -3,6 +3,7 @@ var router = express.Router();
 const bcrypt = require('bcrypt');
 const requireAuth = require('./checkRequest');
 const User = require('../models/User'); 
+const Order = require('../models/Order');
 
 router.post('/login', async function(req, res) {
   const { email, password } = req.body;
@@ -122,6 +123,39 @@ router.post('/remove-from-basket', async (req, res) => {
     res.status(500).json({ message: 'Произошла ошибка при удалении товара из корзины' });
   }
 });
+
+router.post('/checkout', async (req, res) => {
+  try {
+    const { address, contact, furniture, total } = req.body;
+    const author = req.session.user.email;
+    const number = generateOrderNumber();
+
+    const newOrder = new Order({
+      number: number,
+      author: author,
+      address: address,
+      total: total,
+      contact: contact,
+      status: 'Неоплачено',
+      furniture: furniture
+    });
+
+    await newOrder.save();
+
+    const user = await User.findOne({ email: author });
+    user.basket = [];
+    await user.save();
+
+    res.status(200).json({ message: 'Заказ успешно оформлен' });
+  } catch (error) {
+    console.error('Произошла ошибка при оформлении заказа:', error);
+    res.status(500).json({ message: 'Произошла ошибка при оформлении заказа' });
+  }
+});
+
+function generateOrderNumber() {
+  return Math.floor(10000000 + Math.random() * 90000000).toString();
+}
 
 
 module.exports = router;

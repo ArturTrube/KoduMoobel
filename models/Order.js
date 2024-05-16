@@ -6,6 +6,10 @@ const orderSchema = new mongoose.Schema({
     type: String, 
     required: true 
     },
+  author: {
+    type: String, 
+    required: true 
+    },
   address: {
     type: String, 
     required: true 
@@ -13,6 +17,9 @@ const orderSchema = new mongoose.Schema({
   contact: { 
     type: String, 
     required: true 
+    },
+  total: { 
+    type: String, 
     },
   status: { 
     type: String 
@@ -23,8 +30,8 @@ const orderSchema = new mongoose.Schema({
     },
   furniture: [
     {
-      furnitureID: String,
-      Quantity: Number
+      furnitureTitle: String,
+      quantity: String
     }
   ]
 }, { versionKey: false });
