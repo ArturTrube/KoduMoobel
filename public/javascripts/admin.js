@@ -35,3 +35,45 @@ async function addFurniture(){
     console.error(error);
   }
 }
+
+function deleteOrder(orderId) {
+  fetch('/users/delete-order', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ orderId: orderId })
+  })
+  .then(response => {
+    if (response.ok) {
+      console.log('Заказ успешно отменен');
+      window.location.href = '/admin/orders';
+    } else {
+      console.error('Ошибка при отмене заказа');
+    }
+  })
+  .catch(error => {
+    console.error('Произошла ошибка при выполнении запроса:', error);
+  });
+}
+
+function setOrderStatus(orderId, newStatus) {
+  fetch('/admin/update-order-status', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ orderId: orderId, newStatus: newStatus })
+  })
+  .then(response => {
+    if (response.ok) {
+      console.log(`Статус заказа ${orderId} успешно обновлен`);
+      window.location.href = '/admin/orders';
+    } else {
+      console.error(`Произошла ошибка при обновлении статуса заказа ${orderId}`);
+    }
+  })
+  .catch(error => {
+    console.error('Произошла ошибка при отправке запроса:', error);
+  });
+}

@@ -157,5 +157,18 @@ function generateOrderNumber() {
   return Math.floor(10000000 + Math.random() * 90000000).toString();
 }
 
+router.post('/delete-order', async (req, res) => {
+  try {
+    const { orderId } = req.body;
+
+    await Order.findByIdAndDelete(orderId);
+
+    res.status(200).json({ message: 'Заказ успешно удален' });
+  } catch (error) {
+    console.error('Произошла ошибка при удалении заказа:', error);
+    res.status(500).json({ message: 'Произошла ошибка при удалении заказа' });
+  }
+});
+
 
 module.exports = router;

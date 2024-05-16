@@ -41,10 +41,13 @@
                 <p>Контактная информация: <%= order.contact %></p>
                 <p><%= order.total %></p>
               </div>
-              <div class="order-buttons-container">
-                <button onclick="paymentModal()">Оплатить</button>
-                <button onclick="deleteOrder('<%= order._id %>')">Отменить</button>
-              </div>
+              <% if (order.status === 'Неоплачено') { %>
+                <div class="order-buttons-container">
+                  <button onclick="paymentModal()">Оплатить</button>
+                  <button onclick="deleteOrder('<%= order._id %>')">Отменить</button>
+                </div>
+                <% } else { %>
+                <% } %>
             </div>
           <% }); %>
         </div>
