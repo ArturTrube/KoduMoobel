@@ -6,7 +6,7 @@ var logger = require('morgan');
 var mongoose = require('mongoose');
 const session = require('express-session');
 
-const url = 'mongodb+srv://VladislavSupilov:koleso777@vladcluster.jembrjv.mongodb.net/?retryWrites=true&w=majority&appName=vladcluster';
+const url = 'mongodb+srv://VladislavSupilov:koleso777@vladcluster.jembrjv.mongodb.net/kodumoobel?retryWrites=true&w=majority&appName=vladcluster';
 
 mongoose.connect(url);
 
